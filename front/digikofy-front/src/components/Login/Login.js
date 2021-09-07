@@ -1,8 +1,10 @@
-import React, { useState } from "react"
+import React, { useState} from "react"
+import { useHistory } from "react-router-dom";
 
 export default function Login() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const history = useHistory()
     
     const onLogin = async (e) => {
         e.preventDefault()
@@ -22,6 +24,8 @@ export default function Login() {
             const data = await res.json()
 
             localStorage.setItem("token", data.idToken)
+
+            history.push("/home")
                 
         } catch (error) {
             console.log("Something went wrong => ", error)

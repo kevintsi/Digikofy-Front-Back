@@ -9,7 +9,7 @@ export default function Register() {
         console.log(`Email : ${email} and Password : ${password}`)
         try {
             const res = await fetch(
-                "http://localhost:8000/login",
+                "http://localhost:8000/register",
                 { 
                     method : "POST",
                     headers: {
@@ -17,7 +17,14 @@ export default function Register() {
                       },
                     body : JSON.stringify({email, password})
                 })
-            console.log(`Result : ${res.json()}`)    
+            console.log(`Result : ${await res.json()}`)    
+
+            const data = await res.json()
+
+            localStorage.setItem("token", data.idToken)
+
+            history.push("/login")
+            
         } catch (error) {
             console.log("Something went wrong => ", error)
         }
