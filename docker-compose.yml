@@ -1,0 +1,9 @@
+version: "3"
+services:
+  back:
+    build: ./back
+    container_name: digikofy-back-container
+    ports:
+      - "8000:8000"
+    environment: 
+      PORT : 8000
