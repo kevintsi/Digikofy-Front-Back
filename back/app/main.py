@@ -6,9 +6,22 @@ from .modules.response_models import CreatePreparation, MachineCreate, Preparati
     UpdatePreparationSaved, UserAuthentication, MachineUpdate, Machine, Coffee, UserRefreshToken
 from .modules.services import UserService, MachineService, PreparationService, CoffeeService
 from .auth.check_auth import JWTBearer
+from fastapi.middleware.cors import CORSMiddleware
 
 
 app = FastAPI(title="DigikofyAPI")
+
+app = FastAPI()
+
+origins = ["*"]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 ###### USER ROUTE ########
