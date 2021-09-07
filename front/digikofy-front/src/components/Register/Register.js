@@ -1,13 +1,25 @@
 import React, { useState } from "react"
+import { useHistory } from "react-router-dom";
 
 export default function Register() {
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
+    const history = useHistory()
 
+    /*
+        Function called when submitting form. Check if email field or password field are not empty
+        If empty then do nothing else call the API endpoing /register with the email and password given in the body
+        After check the result and if the status code is 409 which means that an account with the same email already exists then 
+        it will show an alert to inform the user
+    */
     const onRegister = async (e) => {
         e.preventDefault()
         console.log(`Email : ${email} and Password : ${password}`)
+
+        if(email.length === 0 || password.length === 0) return;
+        
         try {
+            
             const res = await fetch(
                 "http://localhost:8000/register",
                 { 
@@ -17,11 +29,13 @@ export default function Register() {
                       },
                     body : JSON.stringify({email, password})
                 })
-            console.log(`Result : ${await res.json()}`)    
+            
+            if(!res.ok && res.status === 409) {
+                alert("Account with this email already exists")
+                return;
+            }
 
-            const data = await res.json()
-
-            localStorage.setItem("token", data.idToken)
+            alert("Account created successfully")
 
             history.push("/login")
             

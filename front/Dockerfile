@@ -1,15 +1,13 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+FROM node:10.19.0-alpine3.9
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-COPY . /app
+COPY . /usr/src/app
 
-RUN pip3 install -r requirements.txt
-
-ENV API_KEY_FIREBASE=AIzaSyAaucGQDneM0f-AKbNTKgpcRNzW05wjbyM
+RUN npm install
 
 ENV PORT=$PORT
 
 EXPOSE $PORT
 
-CMD uvicorn app.main:app --host 0.0.0.0 --port $PORT
+CMD ["npm", "start"]

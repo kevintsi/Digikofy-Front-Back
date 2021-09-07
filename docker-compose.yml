@@ -7,3 +7,13 @@ services:
       - "8000:8000"
     environment: 
       PORT : 8000
+    command: ["pytest","./tests/test_api.py"]
+
+  front:
+    build: ./front
+    container_name: digikofy-front-container
+    ports: 
+      - "3000:3000"
+    environment: 
+      PORT : 3000
+    

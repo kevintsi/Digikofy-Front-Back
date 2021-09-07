@@ -6,9 +6,16 @@ export default function Login() {
     const [password, setPassword] = useState("")
     const history = useHistory()
     
+    /*
+        Function called when submitting form. Check if email field or password field are not empty
+        If empty then do nothing
+    */
     const onLogin = async (e) => {
         e.preventDefault()
         console.log(`Email : ${email} and Password : ${password}`)
+
+        if(email.length === 0 || password.length === 0) return;
+
         try {
             const res = await fetch(
                 "http://localhost:8000/login",
@@ -19,9 +26,11 @@ export default function Login() {
                       },
                     body : JSON.stringify({email, password})
                 })
-            console.log("Result : ", await res.json())
 
             const data = await res.json()
+
+
+            console.log("Result : ", data)
 
             localStorage.setItem("token", data.idToken)
 

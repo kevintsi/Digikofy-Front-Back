@@ -2,12 +2,12 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import Register from "./components/Register/Register"
 import Login from "./components/Login/Login"
 import Home from "./components/Home/Home"
+import DetailCoffee from "./components/DetailCoffee/DetailCoffee"
 
 export default function Routes() {
   return (
@@ -23,6 +23,9 @@ export default function Routes() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/detail/:id">
+            <DetailCoffee />
           </Route>
         </Switch>
     </Router>
