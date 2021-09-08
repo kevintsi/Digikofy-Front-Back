@@ -1,8 +1,5 @@
-from datetime import datetime
-import pytest
-from ..modules.response_models import Coffee, Machine
-from ..modules.services import MachineService, PreparationService, CoffeeService
-import pytz
+from ..modules.response_models import Coffee
+from ..modules.services import  CoffeeService
 
 class TestCoffee:
     NB_COFFEE = 17

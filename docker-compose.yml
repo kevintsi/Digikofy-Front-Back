@@ -7,7 +7,11 @@ services:
       - "8000:8000"
     environment: 
       PORT : 8000
-    command: ["pytest","./tests/test_api.py"]
+    healthcheck:
+      test: curl --fail -s http://localhost:8000/ || exit 1
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
   front:
     build: ./front
@@ -16,4 +20,6 @@ services:
       - "3000:3000"
     environment: 
       PORT : 3000
+
+
     
