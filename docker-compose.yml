@@ -21,5 +21,11 @@ services:
     environment: 
       PORT : 3000
 
+  test:
+    build: ./back
+    container_name: digikofy-test-container
+    command: ["pytest", "./app/tests/test_api.py"]
+    
+
 
     
