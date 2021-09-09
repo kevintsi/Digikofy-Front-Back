@@ -4,6 +4,8 @@
 
 - [Digikofy Front Back](#digikofy-front-back)
   - [Concernant ce projet](#concernant-ce-projet)
+    - [Architecture](#architecture)
+    - [Schema Base de Données NoSQL](#schema-base-de-donn%C3%A9es-nosql)
   - [Pour le lancer](#pour-le-lancer)
   - [API](#api)
     - [Routes disponibles](#routes-disponibles)
