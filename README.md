@@ -20,6 +20,18 @@
 Ce projet a été réalisé à l'aide de React.js pour le front, Python à l'aide de la librairie FastAPI. Il est possible de se créer un compte ensuite de se
 connecter pour avoir accès à une liste de cafés où l'on pourra accéder au detail de chacun.
 
+### Architecture
+
+
+![Schema architecture projet digikofy front back](./assets/images/Architecture_Projet_Digikofy_Front_Back.png)
+
+
+### Schema Base de Données NoSQL
+
+
+![Schema Base de Données NoSQL](./assets/images/BDD_NoSQL.png)
+
+
 ## Pour le lancer
 
 Pour lancer ce projet, ayant utilisé docker-compose pour faciliter le deploiement de cette application. Pour lancer le projet il suffit d'avoir installé docker, de pull le projet et taper la commande suivante à la racine où se trouve le docker-compose.yml :
