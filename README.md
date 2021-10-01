@@ -69,7 +69,7 @@ digikofy-back-container | INFO:     127.0.0.1:36046 - "GET / HTTP/1.1" 200 OK
 ```
 <br/>
 
-Cependant cela peut être désactiver en commentant 
+Cependant cela peut être désactivé en commentant 
 dans le fichier docker-compose.yml la ligne ci-dessous :
 <br/><br/>
 
