@@ -4,6 +4,8 @@ WORKDIR /usr/src/app
 
 COPY ./digikofy-front /usr/src/app
 
+RUN npm install
+
 ENV PORT=$PORT
 
 EXPOSE $PORT
