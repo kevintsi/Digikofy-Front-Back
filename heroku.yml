@@ -1,0 +1,5 @@
+# Reference the Dockerfiles to build into Docker images
+build: 
+    docker: 
+        web: front/Dockerfile 
+        api: back/Dockerfile 
