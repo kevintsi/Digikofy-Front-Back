@@ -10,4 +10,4 @@ ENV PORT=$PORT
 
 EXPOSE $PORT
 
-CMD ["npm", "build"]
+CMD ["npm", "run", "build"]
