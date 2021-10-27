@@ -7,8 +7,9 @@ export default function DetailCoffee() {
     const [coffee, setCoffee] = useState({})
 
     const getCoffee = async (id) => {
+
         try {
-            const res = await fetch(`http://localhost:8000/coffee/${id}`,{ method : "GET"})
+            const res = await fetch(`https://digikofy-front-back.herokuapp.com/api/coffee/${id}`,{ method : "GET"})
 
             const data = await res.json()
 

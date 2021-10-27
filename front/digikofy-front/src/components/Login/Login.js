@@ -18,7 +18,7 @@ export default function Login() {
 
         try {
             const res = await fetch(
-                "http://localhost:8000/login",
+                "https://digikofy-front-back.herokuapp.com/api/login",
                 { 
                     method : "POST",
                     headers: {

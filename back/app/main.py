@@ -20,7 +20,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-@app.get("/", status_code=status.HTTP_200_OK, tags=["Home"])
+@app.get("/api/", status_code=status.HTTP_200_OK, tags=["Home"])
 def home():
     """
         Index page
@@ -32,7 +32,7 @@ def home():
 
 ###### USER ROUTE ########
 
-@app.post("/register", status_code=status.HTTP_201_CREATED, tags=["User"])
+@app.post("/api/register", status_code=status.HTTP_201_CREATED, tags=["User"])
 async def register(data: UserAuthentication, response: Response):
     """
         Route to register the user in the database
@@ -52,7 +52,7 @@ async def register(data: UserAuthentication, response: Response):
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
 
 
-@app.post("/login", status_code=status.HTTP_200_OK, tags=["User"])
+@app.post("/api/login", status_code=status.HTTP_200_OK, tags=["User"])
 async def login(data: UserAuthentication, response: Response):
     """
         Route to log in the user
@@ -70,7 +70,7 @@ async def login(data: UserAuthentication, response: Response):
     else:
         response.status_code = status.HTTP_401_UNAUTHORIZED
 
-@app.post("/refreshToken", status_code=status.HTTP_200_OK, tags=["User"])
+@app.post("/api/refreshToken", status_code=status.HTTP_200_OK, tags=["User"])
 async def refresh_token(data : UserRefreshToken, response : Response):
     """
         Route to get a new id token with the refresh token given
@@ -88,7 +88,7 @@ async def refresh_token(data : UserRefreshToken, response : Response):
     elif code == 403:
         response.status_code = status.HTTP_403_FORBIDDEN
 
-@app.post("/revoke", status_code=status.HTTP_200_OK, tags=["User"])
+@app.post("/api/revoke", status_code=status.HTTP_200_OK, tags=["User"])
 async def revoke_refresh_token(data : UserRefreshToken):
     """
         Route to log out and revoke the refresh token
@@ -101,7 +101,7 @@ async def revoke_refresh_token(data : UserRefreshToken):
 ######## COFFEE'S ROUTE ##########
 
 
-@app.get("/coffees", status_code=status.HTTP_200_OK, response_model=List[Coffee], tags=["Coffee"])
+@app.get("/api/coffees", status_code=status.HTTP_200_OK, response_model=List[Coffee], tags=["Coffee"])
 async def get_coffee(response: Response):
     """
         Route that returns all coffees
@@ -119,7 +119,7 @@ async def get_coffee(response: Response):
         response.status_code = status.HTTP_500_INTERNAL_SERVER_ERROR
 
 
-@app.get("/coffee/{id}", status_code=status.HTTP_200_OK, response_model=Coffee, tags=["Coffee"])
+@app.get("/api/offee/{id}", status_code=status.HTTP_200_OK, response_model=Coffee, tags=["Coffee"])
 async def get_coffee_by_id(id: str, response: Response):
     """
         Route that return the coffee with the given id

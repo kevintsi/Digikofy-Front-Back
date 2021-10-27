@@ -7,7 +7,7 @@ export default function Home() {
 
     const getCoffees = async () => {
         try {
-            const res = await fetch("http://localhost:8000/coffees",{ method : "GET"})
+            const res = await fetch("https://digikofy-front-back.herokuapp.com/api/coffees",{ method : "GET"})
 
             const data = await res.json()
 

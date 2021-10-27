@@ -21,7 +21,7 @@ export default function Register() {
         try {
             
             const res = await fetch(
-                "http://localhost:8000/register",
+                "https://digikofy-front-back.herokuapp.com/api/register",
                 { 
                     method : "POST",
                     headers: {
